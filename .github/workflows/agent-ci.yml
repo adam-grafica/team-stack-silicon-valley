@@ -1,0 +1,51 @@
+name: Team Stack CI — Silicon Valley v1.0
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-agents:
+    name: Validate Agent Stack
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate AGENTS.md exists
+        run: test -f AGENTS.md && echo "✅ AGENTS.md OK" || exit 1
+
+      - name: Validate all prompt files exist
+        run: |
+          for agent in adam atlas forge pixel sentinel herald nexus cipher; do
+            test -f "prompts/instructions/${agent}.md" && echo "✅ ${agent}.md OK" || exit 1
+          done
+
+      - name: Validate all super-skills exist
+        run: |
+          for agent in adam atlas forge pixel sentinel herald nexus cipher; do
+            test -f "super-skills/${agent}-skills.md" && echo "✅ ${agent}-skills.md OK" || exit 1
+          done
+
+      - name: Validate .opencode.json
+        run: |
+          python3 -c "import json; json.load(open('.opencode.json')); print('✅ .opencode.json valid JSON')"
+
+      - name: Validate required docs
+        run: |
+          for doc in ROADMAP.md CIRCUIT_BREAKER.md METRICS_DASHBOARD.md INCIDENT_LOG.md; do
+            test -f "${doc}" && echo "✅ ${doc} OK" || exit 1
+          done
+
+      - name: Stack integrity summary
+        run: |
+          echo "🚀 TEAM STACK SILICON VALLEY v1.0"
+          echo "================================"
+          echo "✅ 8 Agent prompts validated"
+          echo "✅ 8 Super-skills validated"
+          echo "✅ Core docs validated"
+          echo "✅ Config validated"
+          echo "🔥 Stack ready for deployment!"
