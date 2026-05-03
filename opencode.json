@@ -1,0 +1,68 @@
+﻿{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "google/gemini-3.1-pro-preview",
+  "autoupdate": false,
+  "provider": {
+    "google": {
+      "apiKey": "AIzaSyBIyEAiXj4Zn_OZu5sQQmnJuPV-fIy0gi0"
+    },
+    "mistral": {
+      "baseUrl": "https://api.mistral.ai/v1",
+      "apiKey": "AxinJ8HYx697yLjjX7HrE4vUl8fGRKCj"
+    },
+    "nvidia": {
+      "baseUrl": "https://integrate.api.nvidia.com/v1",
+      "apiKey": "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"
+    }
+  },
+  "agent": {
+    "adam": {
+      "description": "Orquestador Supremo  coordina todos los agentes, circuit breaker",
+      "model": "google/gemini-3.1-pro-preview",
+      "temperature": 0.2,
+      "tools": { "write": true, "edit": true, "bash": true }
+    },
+    "atlas": {
+      "description": "Planner / Arquitecto  diseño de sistemas, estructura, roadmap",
+      "model": "google/gemini-3.1-pro-preview",
+      "temperature": 0.3,
+      "tools": { "write": true, "edit": true, "bash": false }
+    },
+    "forge": {
+      "description": "Executor Rust / Backend  Tauri, PTY, MCP axum",
+      "model": "google/gemini-3.1-pro-preview",
+      "temperature": 0.1,
+      "tools": { "write": true, "edit": true, "bash": true }
+    },
+    "pixel": {
+      "description": "Executor Frontend  Vanilla TS, xterm.js, CSS variables",
+      "model": "google/gemini-3.1-flash-preview",
+      "temperature": 0.1,
+      "tools": { "write": true, "edit": true, "bash": true }
+    },
+    "sentinel": {
+      "description": "Tester / QA  cargo check, grep, validacion estricta",
+      "model": "google/gemini-3.1-flash-preview",
+      "temperature": 0.0,
+      "tools": { "write": false, "edit": false, "bash": true }
+    },
+    "herald": {
+      "description": "Documentador  AGENTS.md, changelog, contexto compartido",
+      "model": "google/gemini-3.1-flash-preview",
+      "temperature": 0.2,
+      "tools": { "write": true, "edit": true, "bash": false }
+    },
+    "nexus": {
+      "description": "Build & DevOps  cargo build, empaquetado, CI, releases",
+      "model": "google/gemini-3.1-flash-preview",
+      "temperature": 0.1,
+      "tools": { "write": true, "edit": true, "bash": true }
+    },
+    "cipher": {
+      "description": "Seguridad  memory leaks, IPC seguro, PTY cleanup, auditoria",
+      "model": "google/gemini-3.1-flash-preview",
+      "temperature": 0.0,
+      "tools": { "write": false, "edit": false, "bash": true }
+    }
+  }
+}

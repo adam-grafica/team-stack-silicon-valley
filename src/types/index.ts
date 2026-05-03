@@ -1,0 +1,1 @@
+﻿// PIXEL territory  Tipos globales

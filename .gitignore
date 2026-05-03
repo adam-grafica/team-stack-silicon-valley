@@ -1,38 +1,5 @@
-# Team Stack — .gitignore
-
-# Environment
-.env
-.env.local
-.env.*.local
-
-# Rust
-target/
-Cargo.lock
-
-# Node
-node_modules/
+﻿node_modules/
 dist/
-.next/
-build/
-
-# Logs
+src-tauri/target/
+.env
 *.log
-logs/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/settings.json
-.idea/
-*.swp
-
-# OpenCode session cache
-.opencode/cache/
-.opencode/sessions/
-
-# Secrets (extra safety)
-*.pem
-*.key
-secrets/

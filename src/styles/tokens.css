@@ -1,0 +1,31 @@
+﻿/* MIDI STUDIO  Design Tokens */
+:root {
+  /* Colors */
+  --color-bg:        #0D0D0B;
+  --color-surface:   #151513;
+  --color-border:    #2A2A28;
+  --color-accent:    #6366F1;
+  --color-terminal:  #4AF2A1;
+  --color-text:      #E8E8E6;
+  --color-muted:     #6B6B68;
+  --color-error:     #F87171;
+  --color-warning:   #FBBF24;
+
+  /* Typography */
+  --font-terminal: 'JetBrains Mono', 'Cascadia Code', monospace;
+  --font-ui:       'Inter', system-ui, sans-serif;
+  --font-size-xs:  11px;
+  --font-size-sm:  13px;
+  --font-size-md:  14px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}

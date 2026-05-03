@@ -1,0 +1,1 @@
+﻿// FORGE territory  Agents state
