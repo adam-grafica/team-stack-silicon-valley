@@ -1,0 +1,195 @@
+/**
+ * MIDI STUDIO — Right Panel Styles v3.1 BRIDGEMIND
+ * Estilos para el panel derecho
+ */
+
+/* ─── Browser Panel ──────────────────────────────────────────────── */
+.browser-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+}
+
+.browser-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.browser-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.browser-url-bar {
+  flex: 1;
+  max-width: 400px;
+}
+
+.browser-url-input {
+  width: 100%;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-size: var(--font-size-xs);
+}
+
+.browser-menu-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 16px;
+  padding: var(--space-1);
+}
+
+.browser-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.browser-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── Editor Panel ───────────────────────────────────────────────── */
+.editor-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+}
+
+.editor-header {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.editor-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.editor-content {
+  flex: 1;
+  padding: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editor-placeholder {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* ─── Swarm Panel ────────────────────────────────────────────────── */
+.swarm-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+}
+
+.swarm-header {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.swarm-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.swarm-content {
+  flex: 1;
+  padding: var(--space-2);
+  overflow: auto;
+}
+
+.agent-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.agent-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background: var(--bg-hover);
+  border-radius: var(--radius-sm);
+}
+
+.agent-status {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.agent-status.online {
+  background: var(--accent-green);
+}
+
+.agent-status.busy {
+  background: var(--accent-orange);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ─── Canvas Panel ───────────────────────────────────────────────── */
+.canvas-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+}
+
+.canvas-header {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.canvas-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.canvas-content {
+  flex: 1;
+  padding: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas-placeholder {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .browser-iframe,
+  .editor-content,
+  .swarm-content,
+  .canvas-content {
+    height: calc(100% - 40px);
+  }
+}

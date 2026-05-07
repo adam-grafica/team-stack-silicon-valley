@@ -1,4 +1,4 @@
-﻿use std::sync::Mutex;
+use std::sync::Mutex;
 use std::collections::HashMap;
 use crate::pty::{PtySession, PtyManager};
 

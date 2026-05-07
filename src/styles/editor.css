@@ -1,0 +1,153 @@
+/**
+ * MIDI STUDIO — Editor Styles
+ * Editor de código con syntax highlighting
+ */
+
+/* ─── Code Editor ───────────────────────────────────────────────── */
+.code-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-bg);
+}
+
+/* ─── Editor Tabs ───────────────────────────────────────────────── */
+.editor-tabs {
+  display: flex;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  overflow-x: auto;
+}
+
+.editor-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  white-space: nowrap;
+  font-size: var(--font-size-sm);
+}
+
+.editor-tab:hover {
+  background: var(--color-surface-elevated);
+}
+
+.editor-tab.active {
+  background: var(--color-bg);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.editor-tab .btn-close-tab {
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.editor-tab:hover .btn-close-tab {
+  opacity: 1;
+}
+
+.editor-tab .btn-close-tab:hover {
+  color: var(--color-error);
+}
+
+/* ─── Editor Content ────────────────────────────────────────────── */
+.editor-content {
+  flex: 1;
+  overflow: auto;
+  padding: var(--space-4);
+}
+
+/* ─── Editor Code ─────────────────────────────────────────────── */
+.editor-code {
+  display: flex;
+  font-family: var(--font-terminal);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+/* ─── Line Numbers ──────────────────────────────────────────────── */
+.line-numbers {
+  display: flex;
+  flex-direction: column;
+  padding-right: var(--space-4);
+  border-right: 1px solid var(--color-border);
+  margin-right: var(--space-4);
+  user-select: none;
+}
+
+.line-number {
+  color: var(--color-text-dim);
+  text-align: right;
+  min-width: 30px;
+  padding: 0 var(--space-2);
+  font-size: var(--font-size-sm);
+}
+
+/* ─── Code Content ──────────────────────────────────────────────── */
+.code-content {
+  flex: 1;
+}
+
+.code-line {
+  white-space: pre;
+  min-height: 1.6em;
+}
+
+/* ─── Syntax Highlighting ─────────────────────────────────────── */
+.syntax-string {
+  color: #4AF2A1;
+}
+
+.syntax-keyword {
+  color: #818CF8;
+  font-weight: 600;
+}
+
+.syntax-comment {
+  color: #6B6B68;
+  font-style: italic;
+}
+
+.syntax-number {
+  color: #FBBF24;
+}
+
+.syntax-function {
+  color: #60A5FA;
+}
+
+/* ─── Editor Empty State ────────────────────────────────────────── */
+.editor-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .editor-tabs {
+    overflow-x: auto;
+  }
+  
+  .editor-code {
+    font-size: var(--font-size-xs);
+  }
+}

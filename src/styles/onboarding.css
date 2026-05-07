@@ -1,0 +1,258 @@
+/**
+ * MIDI STUDIO — Onboarding Styles
+ * 4 pasos: Proyecto → Team → Contexto → Listo
+ */
+
+/* ─── Overlay ───────────────────────────────────────────────────── */
+.onboarding-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* ─── Modal ─────────────────────────────────────────────────────── */
+.onboarding-modal {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  width: 600px;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ─── Header ────────────────────────────────────────────────────── */
+.onboarding-header {
+  padding: var(--space-6);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.onboarding-header h2 {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+}
+
+.onboarding-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+}
+
+/* ─── Steps Indicator ──────────────────────────────────────────── */
+.onboarding-steps {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.step-indicator.active {
+  background: var(--color-accent-dim);
+}
+
+.step-indicator.active .step-number {
+  background: var(--color-accent);
+  color: white;
+}
+
+.step-number {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-surface-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.step-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.step-indicator.active .step-label {
+  color: var(--color-text);
+}
+
+/* ─── Content ───────────────────────────────────────────────────── */
+.onboarding-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-6);
+}
+
+/* ─── Form ──────────────────────────────────────────────────────── */
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.folder-selector {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.folder-selector input {
+  flex: 1;
+}
+
+/* ─── Project List ───────────────────────────────────────────── */
+.recent-projects {
+  margin-top: var(--space-6);
+}
+
+.recent-projects h4 {
+  margin: 0 0 var(--space-3) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.project-card:hover {
+  border-color: var(--color-accent);
+}
+
+.project-icon {
+  font-size: 20px;
+}
+
+/* ─── Team Templates ───────────────────────────────────────────── */
+.team-templates {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.team-card {
+  padding: var(--space-4);
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.team-card:hover {
+  border-color: var(--color-accent);
+}
+
+.team-card h4 {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--font-size-lg);
+}
+
+.team-card p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* ─── Context Items ────────────────────────────────────────────── */
+.context-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+
+.context-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+/* ─── Summary ──────────────────────────────────────────────────── */
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background: var(--color-surface-elevated);
+  border-radius: var(--radius-md);
+}
+
+.summary-label {
+  color: var(--color-text-muted);
+}
+
+.summary-value {
+  font-weight: 500;
+}
+
+/* ─── Actions ──────────────────────────────────────────────────── */
+.onboarding-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ─── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .onboarding-modal {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+  
+  .team-templates {
+    grid-template-columns: 1fr;
+  }
+}

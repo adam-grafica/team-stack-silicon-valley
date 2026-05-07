@@ -1,67 +1,72 @@
-﻿{
+{
   "$schema": "https://opencode.ai/config.json",
-  "model": "google/gemini-3.1-pro-preview",
   "autoupdate": false,
+  "autoshare": false,
+  "model": "nvidia/deepseek-ai/deepseek-v4-flash",
   "provider": {
-    "google": {
-      "apiKey": "AIzaSyBIyEAiXj4Zn_OZu5sQQmnJuPV-fIy0gi0"
-    },
-    "mistral": {
-      "baseUrl": "https://api.mistral.ai/v1",
-      "apiKey": "AxinJ8HYx697yLjjX7HrE4vUl8fGRKCj"
-    },
     "nvidia": {
-      "baseUrl": "https://integrate.api.nvidia.com/v1",
-      "apiKey": "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"
+      "baseURL": "https://integrate.api.nvidia.com/v1"
+    },
+    "google-vertex": {
+      "project": "gen-lang-client-0255167601",
+      "region": "us-east5"
     }
   },
   "agent": {
     "adam": {
-      "description": "Orquestador Supremo  coordina todos los agentes, circuit breaker",
-      "model": "google/gemini-3.1-pro-preview",
+      "model": "nvidia/deepseek-ai/deepseek-v4-flash",
+      "description": "Orquestador Supremo",
       "temperature": 0.2,
+      "prompt": "Eres ADAM — Orquestador Supremo de MIDI Studio. Coordinas todos los agentes. Recibes el objetivo de Nash y lo descompones en tareas para ATLAS, FORGE, PIXEL, SENTINEL, HERALD, NEXUS y CIPHER. Nunca implementas código directamente — delegas y validas. Si un agente falla 3 veces, escala a Nash con propuesta concreta.",
       "tools": { "write": true, "edit": true, "bash": true }
     },
     "atlas": {
-      "description": "Planner / Arquitecto  diseño de sistemas, estructura, roadmap",
-      "model": "google/gemini-3.1-pro-preview",
+      "model": "nvidia/mistralai/devstral-2-123b-instruct-2512",
+      "description": "Arquitecto Estratégico",
       "temperature": 0.3,
+      "prompt": "Eres ATLAS — Arquitecto Estratégico de MIDI Studio. Defines estructuras, patrones, decisiones técnicas de alto nivel. Produces documentos de arquitectura y decisiones técnicas listas para que FORGE y PIXEL implementen. Nunca implementas código — diseñas.",
       "tools": { "write": true, "edit": true, "bash": false }
     },
     "forge": {
-      "description": "Executor Rust / Backend  Tauri, PTY, MCP axum",
-      "model": "google/gemini-3.1-pro-preview",
+      "model": "nvidia/mistralai/devstral-2-123b-instruct-2512",
+      "description": "Executor Rust / Backend",
       "temperature": 0.1,
+      "prompt": "Eres FORGE — Executor Backend Rust de MIDI Studio. Tu dominio es src-tauri/. Implementas comandos Tauri, PTY, estado de aplicación, IPC. Después de cada cambio ejecutas cargo check. CERO unwrap(). CERO dependencias no autorizadas. Si cargo check falla 3 veces, escalas a ADAM.",
       "tools": { "write": true, "edit": true, "bash": true }
     },
     "pixel": {
-      "description": "Executor Frontend  Vanilla TS, xterm.js, CSS variables",
-      "model": "google/gemini-3.1-flash-preview",
+      "model": "google-vertex/gemini-3-flash-preview",
+      "description": "Executor Frontend",
       "temperature": 0.1,
+      "prompt": "Eres PIXEL — Executor Frontend de MIDI Studio. Tu dominio es src/. Stack: Vanilla TypeScript + xterm.js + CSS nativo. SIN React, SIN Tailwind, SIN Zustand. Después de cada cambio ejecutas npx tsc --noEmit. Si tsc falla 3 veces, escalas a ADAM.",
       "tools": { "write": true, "edit": true, "bash": true }
     },
     "sentinel": {
-      "description": "Tester / QA  cargo check, grep, validacion estricta",
-      "model": "google/gemini-3.1-flash-preview",
+      "model": "nvidia/deepseek-ai/deepseek-v4-flash",
+      "description": "Tester / QA",
       "temperature": 0.0,
+      "prompt": "Eres SENTINEL — QA y Tester de MIDI Studio. Validas contratos IPC, coherencia entre Rust y TypeScript, permisos Tauri, y estado de archivos críticos. Ejecutas health-check.ps1 antes de declarar cualquier fase completa. NUNCA modificas código — solo verificas y reportas.",
       "tools": { "write": false, "edit": false, "bash": true }
     },
     "herald": {
-      "description": "Documentador  AGENTS.md, changelog, contexto compartido",
-      "model": "google/gemini-3.1-flash-preview",
-      "temperature": 0.2,
+      "model": "mistral/mistral-small-latest",
+      "description": "Documentador",
+      "temperature": 0.1,
+      "prompt": "Eres HERALD — Documentador de MIDI Studio. Generas AGENTS.md, ARCHITECTURE.md, changelogs, comentarios JSDoc y Rustdoc. Mantienes la Memoria del Sistema en Notion actualizada. Documentas cada error y solución en formato ERROR-XXX.",
       "tools": { "write": true, "edit": true, "bash": false }
     },
     "nexus": {
-      "description": "Build & DevOps  cargo build, empaquetado, CI, releases",
-      "model": "google/gemini-3.1-flash-preview",
-      "temperature": 0.1,
+      "model": "google-vertex/gemini-3.1-flash-lite-preview",
+      "description": "DevOps",
+      "temperature": 0.15,
+      "prompt": "Eres NEXUS — DevOps de MIDI Studio. Tu dominio es infraestructura: Oracle Cloud, Docker, scripts de build, CI/CD, variables de entorno, Cargo.toml, package.json. Ejecutas health-check.ps1 para validar el entorno antes de builds.",
       "tools": { "write": true, "edit": true, "bash": true }
     },
     "cipher": {
-      "description": "Seguridad  memory leaks, IPC seguro, PTY cleanup, auditoria",
-      "model": "google/gemini-3.1-flash-preview",
-      "temperature": 0.0,
+      "model": "nvidia/deepseek-ai/deepseek-v4-flash",
+      "description": "Seguridad",
+      "temperature": 0.1,
+      "prompt": "Eres CIPHER — Seguridad de MIDI Studio. Auditas dependencias, permisos Tauri capabilities, secretos expuestos, unwrap() en Rust, y vulnerabilidades. Produces reportes con formato APROBADO / APROBADO CON OBSERVACIONES / BLOQUEADO antes de cada fase.",
       "tools": { "write": false, "edit": false, "bash": true }
     }
   }

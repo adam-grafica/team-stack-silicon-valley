@@ -1,1 +1,1 @@
-﻿// FORGE territory  Agents state
+// FORGE territory  Agents state

@@ -1,1 +1,1 @@
-﻿// FORGE territory  File explorer
+// FORGE territory  File explorer

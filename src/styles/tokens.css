@@ -1,31 +1,77 @@
-﻿/* MIDI STUDIO  Design Tokens */
+/**
+ * MIDI STUDIO — Design Tokens v3.1 BRIDGEMIND
+ * Paleta exacta de la referencia visual
+ * 
+ * PIXEL territory — Foundation layer
+ */
+
+/* ─── Theme: BRIDGEMIND Dark ──────────────────────────────────── */
 :root {
-  /* Colors */
-  --color-bg:        #0D0D0B;
-  --color-surface:   #151513;
-  --color-border:    #2A2A28;
-  --color-accent:    #6366F1;
-  --color-terminal:  #4AF2A1;
-  --color-text:      #E8E8E6;
-  --color-muted:     #6B6B68;
-  --color-error:     #F87171;
-  --color-warning:   #FBBF24;
-
+  /* Core Backgrounds */
+  --bg-main: #1a1a1a;
+  --bg-panel: #1e1e1e;
+  --bg-terminal: #0f0f0f;
+  --bg-tab-bar: #161616;
+  --bg-active: #2a2a2a;
+  --bg-hover: #252525;
+  
+  /* Borders */
+  --border-color: #333333;
+  --border-subtle: #222222;
+  
+  /* Accents */
+  --accent-indigo: #6366f1;
+  --accent-orange: #f97316;
+  --accent-blue: #3b82f6;
+  --accent-red: #ef4444;
+  --accent-green: #22c55e;
+  
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-muted: #555555;
+  --text-dim: #444444;
+  
+  /* Terminal Colors */
+  --terminal-bg: #0f0f0f;
+  --terminal-text: #ffffff;
+  --terminal-orange: #f97316;
+  --terminal-green: #22c55e;
+  --terminal-blue: #60a5fa;
+  --terminal-gray: #888888;
+  --terminal-dim: #555555;
+  
   /* Typography */
-  --font-terminal: 'JetBrains Mono', 'Cascadia Code', monospace;
-  --font-ui:       'Inter', system-ui, sans-serif;
-  --font-size-xs:  11px;
-  --font-size-sm:  13px;
-  --font-size-md:  14px;
-
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-terminal: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace;
+  
+  --font-size-xs: 10px;
+  --font-size-sm: 11px;
+  --font-size-md: 12px;
+  --font-size-lg: 14px;
+  --font-size-xl: 16px;
+  
   /* Spacing */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
-  --space-6: 24px;
-
+  
+  /* Layout */
+  --sidebar-width: 65px;
+  --sidebar-expanded: 200px;
+  --right-panel-width: 490px;
+  --tab-bar-height: 28px;
+  --terminal-header-height: 22px;
+  --terminal-footer-height: 18px;
+  --global-status-height: 24px;
+  
   /* Radius */
   --radius-sm: 4px;
-  --radius-md: 8px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
 }

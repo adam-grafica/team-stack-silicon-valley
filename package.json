@@ -1,19 +1,22 @@
-﻿{
+{
   "name": "midi-studio",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev":   "vite",
+    "dev": "vite",
     "build": "tsc && vite build",
     "tauri": "tauri"
   },
   "dependencies": {
-    "@xterm/xterm":       "latest",
-    "@xterm/addon-webgl": "latest"
+    "@tauri-apps/api": "^2.11.0",
+    "@xterm/addon-webgl": "latest",
+    "@xterm/xterm": "latest"
   },
   "devDependencies": {
-    "vite":              "latest",
-    "typescript":        "latest",
-    "@tauri-apps/cli":   "2"
+    "@playwright/test": "^1.59.1",
+    "@tauri-apps/cli": "2",
+    "esbuild": "^0.28.0",
+    "typescript": "latest",
+    "vite": "latest"
   }
 }

@@ -1,1 +1,155 @@
-﻿
+/**
+ * MIDI STUDIO — Terminal Component Styles v3.1 BRIDGEMIND
+ * Estilos para el componente TerminalPanel
+ */
+
+/* ─── Terminal Panel ──────────────────────────────────────────────── */
+.terminal-panel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.terminal-panel.open {
+  height: auto;
+  min-height: 200px;
+}
+
+.terminal-panel.collapsed {
+  height: 30px;
+}
+
+/* ─── Terminal Header ────────────────────────────────────────────── */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-hover);
+  border-bottom: 1px solid var(--border-color);
+  height: 32px;
+}
+
+.terminal-tabs {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.terminal-tab {
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-tab-bar);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.terminal-tab.active {
+  background: var(--accent-indigo);
+  color: white;
+}
+
+.terminal-tab:hover {
+  background: var(--bg-active);
+}
+
+.terminal-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 12px;
+  padding: var(--space-1);
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-sm);
+}
+
+.btn-icon:hover {
+  background: var(--bg-active);
+  color: var(--text-secondary);
+}
+
+/* ─── Terminal Body ──────────────────────────────────────────────── */
+.terminal-body {
+  flex: 1;
+  overflow: auto;
+  padding: var(--space-2);
+  background: var(--bg-terminal);
+  font-family: var(--font-terminal);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+/* ─── Terminal Input ─────────────────────────────────────────────── */
+.terminal-input {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-hover);
+  border-top: 1px solid var(--border-color);
+}
+
+.prompt {
+  color: var(--accent-green);
+  font-weight: bold;
+}
+
+.command-input {
+  flex: 1;
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-terminal);
+  font-size: var(--font-size-sm);
+}
+
+.btn-send {
+  background: var(--accent-indigo);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-send:hover {
+  background: var(--accent-blue);
+  transform: scale(1.05);
+}
+
+/* ─── XTerm Container ────────────────────────────────────────────── */
+.xterm-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .terminal-panel {
+    min-height: 150px;
+  }
+
+  .terminal-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .command-input {
+    width: 100%;
+  }
+}

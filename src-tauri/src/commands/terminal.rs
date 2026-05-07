@@ -1,7 +1,7 @@
-﻿use crate::state::AppState;
+use crate::state::AppState;
 use serde::Serialize;
 use std::io::{Read, Write};
-use tauri::{AppHandle, Emitter, State};
+use tauri::{AppHandle, Emitter, Manager, State};
 
 #[derive(Clone, Serialize)]
 struct PtyOutputPayload {
@@ -54,6 +54,11 @@ pub async fn pty_create(
                             data: "\r\n[proceso terminado]\r\n".into(),
                         },
                     );
+                    if let Some(state) = app.try_state::<AppState>() {
+                        if let Ok(mut sessions) = state.sessions.lock() {
+                            sessions.remove(&id_clone);
+                        }
+                    }
                     break;
                 }
             }

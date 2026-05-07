@@ -1,0 +1,208 @@
+/**
+ * MIDI STUDIO — Kanban Styles
+ * Tablero Kanban interactivo
+ */
+
+/* ─── Kanban Board ──────────────────────────────────────────────── */
+.kanban-board {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-4);
+}
+
+.kanban-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.kanban-header h3 {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+
+/* ─── Kanban Columns ────────────────────────────────────────────── */
+.kanban-columns {
+  display: flex;
+  gap: var(--space-4);
+  flex: 1;
+  overflow-x: auto;
+}
+
+/* ─── Kanban Column ────────────────────────────────────────────── */
+.kanban-column {
+  min-width: 280px;
+  max-width: 320px;
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.kanban-column-header h4 {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-count {
+  background: var(--color-accent);
+  color: white;
+  font-size: var(--font-size-xs);
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ─── Kanban Column Content ─────────────────────────────────────── */
+.kanban-column-content {
+  flex: 1;
+  padding: var(--space-3);
+  overflow-y: auto;
+  min-height: 100px;
+}
+
+.kanban-column-content.drag-over {
+  background: var(--color-accent-dim);
+  border: 2px dashed var(--color-accent);
+}
+
+/* ─── Kanban Card ───────────────────────────────────────────────── */
+.kanban-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  cursor: grab;
+  transition: all var(--transition-fast);
+}
+
+.kanban-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.kanban-card.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+/* ─── Kanban Card Header ────────────────────────────────────────── */
+.kanban-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.card-priority {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.btn-delete-card {
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.kanban-card:hover .btn-delete-card {
+  opacity: 1;
+}
+
+/* ─── Kanban Card Title ────────────────────────────────────────── */
+.kanban-card-title {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ─── Kanban Card Description ──────────────────────────────────── */
+.kanban-card-description {
+  margin: 0 0 var(--space-3) 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* ─── Kanban Card Footer ────────────────────────────────────────── */
+.kanban-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+.card-assignee {
+  font-size: var(--font-size-xs);
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.card-tags {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.card-tag {
+  font-size: var(--font-size-xs);
+  background: var(--color-surface-elevated);
+  color: var(--color-text-muted);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ─── Add Card Button ──────────────────────────────────────────── */
+.btn-add-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2);
+  background: transparent;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin: var(--space-2) var(--space-3);
+}
+
+.btn-add-card:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .kanban-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .kanban-column {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
